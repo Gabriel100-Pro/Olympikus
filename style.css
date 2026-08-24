@@ -1,0 +1,3008 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  font-family: "DM Sans", sans-serif;
+
+  background: #f4f5f6;
+  color: #111318;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+  --accent: #ff4b3e;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --text: #111318;
+
+  --muted: #737982;
+
+  --light-border: rgba(20, 24, 30, 0.08);
+
+  --page-bg: #f5f6f7;
+}
+
+
+/* =========================================================
+   SITE
+========================================================= */
+
+.site {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 52% 42%,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(248, 249, 250, 0.95) 34%,
+      rgba(241, 243, 245, 1) 100%
+    );
+
+  transition:
+    background 0.9s var(--ease);
+}
+
+
+/* =========================================================
+   TEMA — PRETO
+========================================================= */
+
+.site[data-theme="black"] {
+  --accent: #ff4b3e;
+
+  background:
+    radial-gradient(
+      circle at 55% 45%,
+      #ffffff 0%,
+      #f7f8f9 40%,
+      #eef0f2 100%
+    );
+}
+
+
+/* =========================================================
+   TEMA — BRANCO
+========================================================= */
+
+.site[data-theme="white"] {
+  --accent: #747c86;
+
+  background:
+    radial-gradient(
+      circle at 55% 42%,
+      #ffffff 0%,
+      #f6f7f8 45%,
+      #eceef0 100%
+    );
+}
+
+
+/* =========================================================
+   TEMA — BRANCO / AZUL
+========================================================= */
+
+.site[data-theme="white-blue"] {
+  --accent: #2563eb;
+
+  background:
+    radial-gradient(
+      circle at 55% 42%,
+      #ffffff 0%,
+      #f8fbff 32%,
+      #f0f6ff 60%,
+      #e5effd 100%
+    );
+}
+
+
+/* =========================================================
+   TEMA — BEGE
+========================================================= */
+
+.site[data-theme="beige"] {
+  --accent: #c99450;
+
+  background:
+    radial-gradient(
+      circle at 55% 42%,
+      #ffffff 0%,
+      #faf6f0 48%,
+      #eee5d8 100%
+    );
+}
+
+
+/* =========================================================
+   TEMA — CINZA / AZUL
+========================================================= */
+
+.site[data-theme="gray-blue"] {
+  --accent: #2563eb;
+
+  background:
+    radial-gradient(
+      circle at 55% 42%,
+      #ffffff 0%,
+      #f7f9fc 30%,
+      #eef3f9 58%,
+      #e3eaf3 100%
+    );
+}
+
+
+/* =========================================================
+   BACKGROUND AMBIENT
+========================================================= */
+
+.ambient {
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(80px);
+
+  opacity: 0.12;
+
+  transition:
+    background 0.9s var(--ease),
+    transform 1s var(--ease),
+    opacity 0.9s ease;
+}
+
+
+.ambient-a {
+  top: 5%;
+  left: 20%;
+
+  background: var(--accent);
+
+  transform: translate(-50%, -50%);
+}
+
+
+.ambient-b {
+  right: -10%;
+  bottom: -20%;
+
+  background: var(--accent);
+
+  opacity: 0.06;
+}
+
+
+/* =========================================================
+   AMBIENT — BRANCO / AZUL
+========================================================= */
+
+.site[data-theme="white-blue"] .ambient-a {
+  background: #3b82f6;
+
+  opacity: 0.16;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.15);
+}
+
+
+.site[data-theme="white-blue"] .ambient-b {
+  background: #60a5fa;
+
+  opacity: 0.10;
+}
+
+
+/* =========================================================
+   AMBIENT — CINZA / AZUL
+========================================================= */
+
+.site[data-theme="gray-blue"] .ambient-a {
+  background: #3b82f6;
+
+  opacity: 0.14;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.12);
+}
+
+
+.site[data-theme="gray-blue"] .ambient-b {
+  background: #60a5fa;
+
+  opacity: 0.09;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.grid-glow {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.35;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.4) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.4) 1px,
+      transparent 1px
+    );
+
+  background-size: 100px 100px;
+
+  mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 0%,
+      transparent 70%
+    );
+}
+
+
+/* =========================================================
+   NOISE
+========================================================= */
+
+.background-noise {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.035;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+
+  mix-blend-mode: multiply;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+  position: relative;
+  z-index: 20;
+
+  width: 100%;
+  height: 100px;
+
+  padding: 0 4.2vw;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  flex-shrink: 0;
+}
+
+
+.brand-name {
+  font-family: "Manrope", sans-serif;
+
+  font-size: 18px;
+
+  font-weight: 800;
+
+  letter-spacing: -0.8px;
+}
+
+
+.brand-mark {
+  position: relative;
+
+  width: 56px;
+  height: 22px;
+
+  display: block;
+}
+
+
+.brand-mark i {
+  position: absolute;
+
+  width: 27px;
+  height: 13px;
+
+  border: 2.5px solid #111318;
+
+  border-radius: 50%;
+
+  transform: rotate(-8deg);
+}
+
+
+.brand-mark i:nth-child(1) {
+  left: 0;
+  top: 4px;
+}
+
+
+.brand-mark i:nth-child(2) {
+  left: 14px;
+  top: 4px;
+}
+
+
+.brand-mark i:nth-child(3) {
+  left: 27px;
+  top: 4px;
+}
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.nav-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: clamp(28px, 4vw, 64px);
+
+  margin-left: 7vw;
+}
+
+
+.nav-links a {
+  position: relative;
+
+  color: #15171b;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.02em;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--accent);
+
+  transition:
+    width 0.35s var(--ease),
+    background 0.4s ease;
+}
+
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   NAV ACTIONS
+========================================================= */
+
+.nav-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+
+.icon-btn {
+  width: 28px;
+  height: 28px;
+
+  display: grid;
+
+  place-items: center;
+
+  background: transparent;
+
+  color: #111318;
+
+  transition:
+    transform 0.3s var(--ease),
+    color 0.3s ease;
+}
+
+
+.icon-btn:hover {
+  transform: translateY(-2px);
+
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   SEARCH ICON
+========================================================= */
+
+.icon-search {
+  position: relative;
+
+  width: 17px;
+  height: 17px;
+
+  border: 1.6px solid currentColor;
+
+  border-radius: 50%;
+}
+
+
+.icon-search::after {
+  content: "";
+
+  position: absolute;
+
+  width: 7px;
+  height: 1.6px;
+
+  right: -5px;
+  bottom: -2px;
+
+  background: currentColor;
+
+  transform: rotate(48deg);
+
+  border-radius: 2px;
+}
+
+
+/* =========================================================
+   USER ICON
+========================================================= */
+
+.icon-user {
+  position: relative;
+
+  width: 20px;
+  height: 20px;
+
+  border: 1.5px solid currentColor;
+
+  border-radius: 50%;
+}
+
+
+.icon-user::before {
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  left: 50%;
+  top: 3px;
+
+  transform: translateX(-50%);
+
+  border: 1.3px solid currentColor;
+
+  border-radius: 50%;
+}
+
+
+.icon-user::after {
+  content: "";
+
+  position: absolute;
+
+  width: 10px;
+  height: 5px;
+
+  left: 50%;
+  bottom: 3px;
+
+  transform: translateX(-50%);
+
+  border: 1.3px solid currentColor;
+
+  border-bottom: 0;
+
+  border-radius: 10px 10px 0 0;
+}
+
+
+/* =========================================================
+   BAG ICON
+========================================================= */
+
+.icon-bag {
+  position: relative;
+
+  width: 17px;
+  height: 18px;
+
+  border: 1.5px solid currentColor;
+
+  border-radius: 3px;
+}
+
+
+.icon-bag::before {
+  content: "";
+
+  position: absolute;
+
+  width: 7px;
+  height: 5px;
+
+  left: 50%;
+  top: -5px;
+
+  transform: translateX(-50%);
+
+  border: 1.5px solid currentColor;
+
+  border-bottom: 0;
+
+  border-radius: 6px 6px 0 0;
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.menu-btn {
+  width: 48px;
+  height: 48px;
+
+  margin-left: 4px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 4px;
+
+  border-radius: 50%;
+
+  background: #111318;
+
+  transition:
+    transform 0.35s var(--ease),
+    background 0.4s ease;
+}
+
+
+.menu-btn:hover {
+  transform: scale(1.06);
+
+  background: var(--accent);
+}
+
+
+.menu-btn span {
+  width: 15px;
+  height: 1.5px;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+  z-index: 5;
+
+  min-height:
+    calc(100vh - 100px);
+
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(250px, 0.8fr)
+    minmax(500px, 1.55fr)
+    minmax(230px, 0.65fr);
+
+  align-items: center;
+
+  padding:
+    20px 4.2vw
+    70px;
+}
+
+
+/* =========================================================
+   HERO COPY
+========================================================= */
+
+.hero-copy {
+  position: relative;
+
+  z-index: 8;
+
+  max-width: 430px;
+
+  padding-left: 1vw;
+}
+
+
+.hero-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+
+.hero-label-line {
+  width: 22px;
+  height: 2px;
+
+  background: var(--accent);
+
+  transition:
+    background 0.5s ease;
+}
+
+
+.hero-label p {
+  color: var(--accent);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+
+  transition:
+    color 0.5s ease;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.hero-copy h1 {
+  margin: 0;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size:
+    clamp(52px, 5.3vw, 84px);
+
+  line-height: 0.93;
+
+  font-weight: 700;
+
+  letter-spacing: -0.065em;
+
+  color: #111318;
+}
+
+
+.hero-copy h1 span {
+  color: var(--accent);
+
+  transition:
+    color 0.5s ease;
+}
+
+
+/* =========================================================
+   DESCRIÇÃO
+========================================================= */
+
+.description {
+  max-width: 350px;
+
+  margin-top: 28px;
+
+  color: #70767e;
+
+  font-size: 15px;
+
+  line-height: 1.65;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+========================================================= */
+
+.primary-btn {
+  position: relative;
+
+  margin-top: 34px;
+
+  min-width: 190px;
+
+  height: 56px;
+
+  padding:
+    0 20px 0 25px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 22px;
+
+  border-radius: 100px;
+
+  background: #111318;
+
+  color: #ffffff;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.4s var(--ease),
+    background 0.5s ease,
+    box-shadow 0.4s ease;
+}
+
+
+.primary-btn::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: var(--accent);
+
+  transform:
+    translateX(-101%);
+
+  transition:
+    transform 0.5s var(--ease);
+}
+
+
+.primary-btn span,
+.primary-btn b {
+  position: relative;
+  z-index: 2;
+}
+
+
+.primary-btn span {
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+.primary-btn b {
+  font-size: 20px;
+
+  font-weight: 400;
+
+  transition:
+    transform 0.35s var(--ease);
+}
+
+
+.primary-btn:hover {
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 16px 30px
+    rgba(0, 0, 0, 0.12);
+}
+
+
+.primary-btn:hover::before {
+  transform:
+    translateX(0);
+}
+
+
+.primary-btn:hover b {
+  transform:
+    translateX(5px);
+}
+
+
+/* =========================================================
+   BOTÃO — BRANCO / AZUL
+========================================================= */
+
+.site[data-theme="white-blue"] .primary-btn {
+  background: #111827;
+}
+
+
+.site[data-theme="white-blue"] .primary-btn::before {
+  background:
+    linear-gradient(
+      135deg,
+      #3b82f6,
+      #2563eb,
+      #1d4ed8
+    );
+}
+
+
+.site[data-theme="white-blue"] .primary-btn:hover {
+  box-shadow:
+    0 18px 35px
+    rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================================================
+   BOTÃO — CINZA / AZUL
+========================================================= */
+
+.site[data-theme="gray-blue"] .primary-btn {
+  background: #111827;
+}
+
+
+.site[data-theme="gray-blue"] .primary-btn::before {
+  background:
+    linear-gradient(
+      135deg,
+      #3b82f6,
+      #2563eb,
+      #1d4ed8
+    );
+}
+
+
+.site[data-theme="gray-blue"] .primary-btn:hover {
+  box-shadow:
+    0 18px 35px
+    rgba(37, 99, 235, 0.23);
+}
+
+
+/* =========================================================
+   PRODUCT STAGE
+========================================================= */
+
+.product-stage {
+  position: relative;
+
+  width: 100%;
+
+  height:
+    min(650px, 68vh);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =========================================================
+   ÓRBITA
+========================================================= */
+
+.product-orbit {
+  position: absolute;
+
+  width:
+    min(570px, 43vw);
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(255, 255, 255, 0.78) 48%,
+      rgba(255, 255, 255, 0) 72%
+    );
+
+  box-shadow:
+    inset 0 0 80px
+    rgba(255, 255, 255, 0.75);
+
+  transition:
+    transform 0.8s var(--ease),
+    background 0.8s ease,
+    box-shadow 0.8s ease;
+}
+
+
+/* =========================================================
+   ÓRBITA — BRANCO / AZUL
+========================================================= */
+
+.site[data-theme="white-blue"] .product-orbit {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(249, 252, 255, 0.99) 38%,
+      rgba(236, 245, 255, 0.88) 58%,
+      rgba(218, 233, 253, 0) 76%
+    );
+
+  box-shadow:
+    inset 0 0 90px
+    rgba(255, 255, 255, 0.95),
+
+    0 0 100px
+    rgba(59, 130, 246, 0.09);
+}
+
+
+/* =========================================================
+   ÓRBITA — CINZA / AZUL
+========================================================= */
+
+.site[data-theme="gray-blue"] .product-orbit {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(247, 250, 254, 0.98) 40%,
+      rgba(231, 239, 249, 0.85) 60%,
+      rgba(215, 228, 244, 0) 76%
+    );
+
+  box-shadow:
+    inset 0 0 90px
+    rgba(255, 255, 255, 0.95),
+
+    0 0 100px
+    rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   HALO
+========================================================= */
+
+.product-halo {
+  position: absolute;
+
+  width: 400px;
+  height: 230px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      color-mix(
+        in srgb,
+        var(--accent) 15%,
+        transparent
+      ),
+      transparent 70%
+    );
+
+  filter: blur(35px);
+
+  opacity: 0.7;
+
+  transition:
+    background 0.8s ease,
+    opacity 0.8s ease;
+}
+
+
+/* =========================================================
+   HALO — BRANCO / AZUL
+========================================================= */
+
+.site[data-theme="white-blue"] .product-halo {
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(37, 99, 235, 0.25) 0%,
+      rgba(59, 130, 246, 0.14) 35%,
+      rgba(96, 165, 250, 0.05) 58%,
+      transparent 76%
+    );
+
+  opacity: 0.95;
+
+  filter: blur(32px);
+}
+
+
+/* =========================================================
+   HALO — CINZA / AZUL
+========================================================= */
+
+.site[data-theme="gray-blue"] .product-halo {
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(37, 99, 235, 0.22) 0%,
+      rgba(59, 130, 246, 0.13) 35%,
+      rgba(96, 165, 250, 0.05) 58%,
+      transparent 76%
+    );
+
+  opacity: 0.9;
+
+  filter: blur(34px);
+}
+
+
+/* =========================================================
+   LINHAS TECNOLÓGICAS
+========================================================= */
+
+.tech-lines {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--accent) 15%,
+      transparent
+    );
+
+  opacity: 0.7;
+
+  transition:
+    border-color 0.7s ease;
+
+  animation:
+    orbitSpin 25s linear infinite;
+}
+
+
+.tech-lines::before,
+.tech-lines::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 25px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--accent) 8%,
+      transparent
+    );
+}
+
+
+.tech-lines::after {
+  inset: 55px;
+
+  border-style: dashed;
+
+  opacity: 0.5;
+}
+
+
+/* =========================================================
+   LINHAS — BRANCO / AZUL
+========================================================= */
+
+.site[data-theme="white-blue"] .tech-lines {
+  border-color:
+    rgba(37, 99, 235, 0.18);
+}
+
+
+.site[data-theme="white-blue"] .tech-lines::before {
+  border-color:
+    rgba(37, 99, 235, 0.11);
+}
+
+
+.site[data-theme="white-blue"] .tech-lines::after {
+  border-color:
+    rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   LINHAS — CINZA / AZUL
+========================================================= */
+
+.site[data-theme="gray-blue"] .tech-lines {
+  border-color:
+    rgba(37, 99, 235, 0.17);
+}
+
+
+.site[data-theme="gray-blue"] .tech-lines::before {
+  border-color:
+    rgba(37, 99, 235, 0.10);
+}
+
+
+.site[data-theme="gray-blue"] .tech-lines::after {
+  border-color:
+    rgba(37, 99, 235, 0.07);
+}
+
+
+@keyframes orbitSpin {
+
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+
+}
+
+
+/* =========================================================
+   TÊNIS
+========================================================= */
+
+.shoe-wrap {
+  position: relative;
+
+  z-index: 5;
+
+  width:
+    min(620px, 42vw);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transform:
+    translateY(-2%)
+    rotate(-5deg);
+
+  transition:
+    transform 0.5s var(--ease),
+    filter 0.5s ease;
+}
+
+
+.shoe {
+  position: relative;
+
+  z-index: 3;
+
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+
+  opacity: 1;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  filter:
+    drop-shadow(
+      0 30px 25px
+      rgba(0, 0, 0, 0.18)
+    );
+
+  transition:
+    opacity 0.25s ease,
+    filter 0.45s ease,
+    transform 0.45s var(--ease);
+}
+
+
+/* =========================================================
+   SOMBRA
+========================================================= */
+
+.shoe-shadow {
+  position: absolute;
+
+  z-index: -1;
+
+  left: 10%;
+
+  bottom: 1%;
+
+  width: 80%;
+
+  height: 35px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(0, 0, 0, 0.17);
+
+  filter: blur(22px);
+
+  transform:
+    translateY(30px)
+    scaleX(0.85);
+
+  transition:
+    transform 0.5s var(--ease),
+    opacity 0.5s ease;
+}
+
+
+/* =========================================================
+   HOVER DO TÊNIS
+========================================================= */
+
+.shoe-wrap:hover {
+  transform:
+    translateY(-5%)
+    rotate(-5deg)
+    scale(1.025);
+
+  filter:
+    drop-shadow(
+      0 25px 30px
+      rgba(0, 0, 0, 0.12)
+    );
+}
+
+
+.shoe-wrap:hover .shoe {
+  filter:
+    drop-shadow(
+      0 35px 30px
+      rgba(0, 0, 0, 0.21)
+    );
+}
+
+
+.shoe-wrap:hover .shoe-shadow {
+  transform:
+    translateY(34px)
+    scaleX(0.95);
+
+  opacity: 0.8;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DE SAÍDA
+========================================================= */
+
+.shoe-out-left {
+  animation:
+    shoeOutLeft 0.43s
+    var(--ease)
+    forwards;
+}
+
+
+.shoe-out-right {
+  animation:
+    shoeOutRight 0.43s
+    var(--ease)
+    forwards;
+}
+
+
+.shoe-in {
+  animation:
+    shoeIn 0.58s
+    var(--ease)
+    both;
+}
+
+
+@keyframes shoeOutLeft {
+
+  0% {
+    opacity: 1;
+
+    transform:
+      translateX(0)
+      rotate(-5deg)
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translateX(-180px)
+      rotate(-13deg)
+      scale(0.88);
+  }
+
+}
+
+
+@keyframes shoeOutRight {
+
+  0% {
+    opacity: 1;
+
+    transform:
+      translateX(0)
+      rotate(-5deg)
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translateX(180px)
+      rotate(3deg)
+      scale(0.88);
+  }
+
+}
+
+
+@keyframes shoeIn {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translateX(160px)
+      rotate(5deg)
+      scale(0.88);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translateX(0)
+      rotate(-5deg)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   SETAS — PREMIUM / MINIMALISTAS
+========================================================= */
+
+.slider-arrow {
+  position: absolute;
+
+  z-index: 10;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border:
+    1px solid
+    rgba(17, 19, 24, 0.09);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.38);
+
+  color:
+    rgba(17, 19, 24, 0.72);
+
+  font-size: 0;
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  box-shadow:
+    0 4px 18px
+    rgba(0, 0, 0, 0.035);
+
+  opacity: 0.82;
+
+  transition:
+    transform 0.4s var(--ease),
+    background 0.4s ease,
+    border-color 0.4s ease,
+    color 0.4s ease,
+    box-shadow 0.4s ease,
+    opacity 0.4s ease;
+}
+
+
+/* =========================================================
+   POSIÇÃO
+========================================================= */
+
+.slider-arrow.prev {
+  left: 1.2%;
+}
+
+.slider-arrow.next {
+  right: 1.2%;
+}
+
+
+/* =========================================================
+   DESENHO DA SETA
+========================================================= */
+
+.slider-arrow::before {
+  content: "";
+
+  width: 8px;
+  height: 8px;
+
+  border-top:
+    1.2px solid currentColor;
+
+  border-right:
+    1.2px solid currentColor;
+
+  transition:
+    transform 0.4s var(--ease);
+}
+
+
+.slider-arrow.prev::before {
+  transform:
+    rotate(-135deg)
+    translate(-1px, -1px);
+}
+
+
+.slider-arrow.next::before {
+  transform:
+    rotate(45deg)
+    translate(-1px, -1px);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.slider-arrow:hover {
+  opacity: 1;
+
+  transform:
+    scale(1.06);
+
+  background:
+    rgba(255, 255, 255, 0.78);
+
+  border-color:
+    rgba(17, 19, 24, 0.16);
+
+  color:
+    var(--accent);
+
+  box-shadow:
+    0 7px 22px
+    rgba(0, 0, 0, 0.055);
+}
+
+
+.slider-arrow.prev:hover::before {
+  transform:
+    rotate(-135deg)
+    translate(2px, 2px);
+}
+
+
+.slider-arrow.next:hover::before {
+  transform:
+    rotate(45deg)
+    translate(2px, 2px);
+}
+
+
+/* =========================================================
+   CLIQUE
+========================================================= */
+
+.slider-arrow:active {
+  transform:
+    scale(0.94);
+
+  background:
+    rgba(255, 255, 255, 0.9);
+}
+
+
+/* =========================================================
+   SETAS — BRANCO / AZUL
+========================================================= */
+
+.site[data-theme="white-blue"] .slider-arrow:hover {
+  color:
+    #2563eb;
+
+  border-color:
+    rgba(37, 99, 235, 0.20);
+
+  background:
+    rgba(255, 255, 255, 0.82);
+
+  box-shadow:
+    0 7px 22px
+    rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   SETAS — CINZA / AZUL
+========================================================= */
+
+.site[data-theme="gray-blue"] .slider-arrow:hover {
+  color:
+    #2563eb;
+
+  border-color:
+    rgba(37, 99, 235, 0.20);
+
+  background:
+    rgba(255, 255, 255, 0.82);
+
+  box-shadow:
+    0 7px 22px
+    rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.slider-dots {
+  position: absolute;
+
+  z-index: 12;
+
+  bottom: 18px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.dot {
+  width: 8px;
+  height: 8px;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  background:
+    #b8bdc3;
+
+  transition:
+    width 0.35s var(--ease),
+    background 0.4s ease,
+    transform 0.35s ease;
+}
+
+
+.dot:hover {
+  transform:
+    scale(1.25);
+}
+
+
+.dot.active {
+  width: 26px;
+
+  border-radius: 20px;
+
+  background:
+    var(--accent);
+}
+
+
+/* =========================================================
+   PRODUCT INFO
+========================================================= */
+
+.product-info {
+  position: relative;
+
+  z-index: 8;
+
+  max-width: 245px;
+
+  justify-self: end;
+
+  padding-right: 1vw;
+}
+
+
+.info-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 18px;
+
+  padding-bottom: 15px;
+
+  border-bottom:
+    1px solid
+    rgba(20, 24, 30, 0.1);
+}
+
+
+.product-index {
+  color:
+    #a0a5aa;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+
+.product-category {
+  color:
+    var(--accent);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+
+  transition:
+    color 0.5s ease;
+}
+
+
+.product-info h2 {
+  margin-top: 20px;
+
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size: 31px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: -0.04em;
+
+  color:
+    #111318;
+}
+
+
+.product-color {
+  margin-top: 8px;
+
+  color:
+    #888e95;
+
+  font-size: 12px;
+
+  font-weight: 500;
+}
+
+
+.product-description {
+  margin-top: 22px;
+
+  color:
+    #6f757c;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+.price {
+  margin-top: 24px;
+
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.03em;
+
+  color:
+    #111318;
+}
+
+
+.link-btn {
+  margin-top: 25px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  background:
+    transparent;
+
+  color:
+    #111318;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  border-bottom:
+    1px solid #111318;
+
+  padding-bottom: 5px;
+
+  transition:
+    color 0.35s ease,
+    border-color 0.35s ease,
+    gap 0.35s var(--ease);
+}
+
+
+.link-btn span {
+  font-size: 17px;
+
+  line-height: 0;
+
+  transition:
+    transform 0.35s var(--ease);
+}
+
+
+.link-btn:hover {
+  color:
+    var(--accent);
+
+  border-color:
+    var(--accent);
+
+  gap: 14px;
+}
+
+
+.link-btn:hover span {
+  transform:
+    translateX(3px);
+}
+
+
+/* =========================================================
+   BRANCO / AZUL — DETALHES
+========================================================= */
+
+.site[data-theme="white-blue"] .hero-label-line {
+  background:
+    #2563eb;
+}
+
+
+.site[data-theme="white-blue"] .hero-label p {
+  color:
+    #2563eb;
+}
+
+
+.site[data-theme="white-blue"] .hero-copy h1 span {
+  color:
+    #2563eb;
+}
+
+
+.site[data-theme="white-blue"] .product-category {
+  color:
+    #2563eb;
+}
+
+
+.site[data-theme="white-blue"] .link-btn:hover {
+  color:
+    #2563eb;
+
+  border-color:
+    #2563eb;
+}
+
+
+/* =========================================================
+   CINZA / AZUL — DETALHES
+========================================================= */
+
+.site[data-theme="gray-blue"] .hero-label-line {
+  background:
+    #2563eb;
+}
+
+
+.site[data-theme="gray-blue"] .hero-label p {
+  color:
+    #2563eb;
+}
+
+
+.site[data-theme="gray-blue"] .hero-copy h1 span {
+  color:
+    #2563eb;
+}
+
+
+.site[data-theme="gray-blue"] .product-category {
+  color:
+    #2563eb;
+}
+
+
+.site[data-theme="gray-blue"] .link-btn:hover {
+  color:
+    #2563eb;
+
+  border-color:
+    #2563eb;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DOS TEXTOS
+========================================================= */
+
+.text-out {
+  animation:
+    textOut 0.25s ease
+    forwards;
+}
+
+
+.text-in {
+  animation:
+    textIn 0.55s var(--ease)
+    both;
+}
+
+
+@keyframes textOut {
+
+  from {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+  to {
+    opacity: 0;
+
+    transform:
+      translateY(12px);
+  }
+
+}
+
+
+@keyframes textIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   FEATURE BAR
+========================================================= */
+
+.feature-bar {
+  position: absolute;
+
+  z-index: 15;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  min-height: 112px;
+
+  padding:
+    18px 4.2vw;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 42px;
+
+  background:
+    rgba(255, 255, 255, 0.62);
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.8);
+
+  backdrop-filter:
+    blur(20px);
+
+  box-shadow:
+    0 -10px 35px
+    rgba(0, 0, 0, 0.025);
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.feature {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  min-width: 180px;
+}
+
+
+.feature-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(20, 24, 30, 0.09);
+
+  border-radius: 50%;
+
+  color:
+    #353a40;
+
+  background:
+    rgba(255, 255, 255, 0.75);
+
+  font-size: 17px;
+}
+
+
+.feature strong {
+  display: block;
+
+  color:
+    #171a1e;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+.feature small {
+  display: block;
+
+  margin-top: 4px;
+
+  color:
+    #777d84;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   MINI PRODUCTS
+========================================================= */
+
+.mini-products {
+  margin-left: auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 8px;
+
+  border-radius: 48px;
+
+  background:
+    rgba(255, 255, 255, 0.72);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 10px 35px
+    rgba(0, 0, 0, 0.05);
+
+  backdrop-filter:
+    blur(16px);
+}
+
+
+.mini {
+  position: relative;
+
+  width: 92px;
+  height: 72px;
+
+  padding: 5px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.82);
+
+  border:
+    1px solid
+    rgba(20, 24, 30, 0.055);
+
+  transition:
+    transform 0.35s var(--ease),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+
+.mini:hover {
+  transform:
+    translateY(-3px);
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--accent) 40%,
+      transparent
+    );
+
+  box-shadow:
+    0 10px 20px
+    rgba(0, 0, 0, 0.07);
+}
+
+
+.mini.active {
+  border:
+    2px solid
+    var(--accent);
+
+  background:
+    rgba(255, 255, 255, 0.95);
+
+  box-shadow:
+    0 8px 20px
+    color-mix(
+      in srgb,
+      var(--accent) 12%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   MINIATURA DO TÊNIS
+========================================================= */
+
+.mini-shoe-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+
+  transform:
+    rotate(-5deg);
+
+  user-select: none;
+
+  pointer-events: none;
+
+  -webkit-user-drag: none;
+
+  filter:
+    drop-shadow(
+      0 7px 7px
+      rgba(0, 0, 0, 0.13)
+    );
+
+  transition:
+    transform 0.35s var(--ease),
+    filter 0.35s ease;
+}
+
+
+.mini:hover .mini-shoe-image {
+  transform:
+    rotate(-5deg)
+    scale(1.08);
+
+  filter:
+    drop-shadow(
+      0 10px 9px
+      rgba(0, 0, 0, 0.17)
+    );
+}
+
+
+.mini.active .mini-shoe-image {
+  transform:
+    rotate(-5deg)
+    scale(1.06);
+}
+
+
+/* =========================================================
+   MINIATURA — BRANCO / AZUL
+========================================================= */
+
+.site[data-theme="white-blue"] .mini.active {
+  border-color:
+    #2563eb;
+
+  box-shadow:
+    0 8px 22px
+    rgba(37, 99, 235, 0.15);
+}
+
+
+.site[data-theme="white-blue"] .mini:hover {
+  border-color:
+    rgba(37, 99, 235, 0.45);
+}
+
+
+/* =========================================================
+   MINIATURA — CINZA / AZUL
+========================================================= */
+
+.site[data-theme="gray-blue"] .mini.active {
+  border-color:
+    #2563eb;
+
+  box-shadow:
+    0 8px 22px
+    rgba(37, 99, 235, 0.15);
+}
+
+
+.site[data-theme="gray-blue"] .mini:hover {
+  border-color:
+    rgba(37, 99, 235, 0.45);
+}
+
+
+/* =========================================================
+   SETA DAS MINIATURAS
+========================================================= */
+
+.collection-arrow {
+  width: 62px;
+
+  border-radius: 50%;
+
+  font-size: 24px;
+
+  background:
+    rgba(255, 255, 255, 0.92);
+}
+
+
+.collection-arrow span {
+  transition:
+    transform 0.35s var(--ease);
+}
+
+
+.collection-arrow:hover span {
+  transform:
+    translateX(4px);
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — TABLET
+========================================================= */
+
+@media (max-width: 1150px) {
+
+  .navbar {
+    padding:
+      0 3vw;
+  }
+
+
+  .nav-links {
+    gap: 25px;
+
+    margin-left: 0;
+  }
+
+
+  .hero {
+    grid-template-columns:
+      minmax(220px, 0.75fr)
+      minmax(420px, 1.4fr)
+      minmax(190px, 0.55fr);
+
+    padding-left: 3vw;
+    padding-right: 3vw;
+  }
+
+
+  .hero-copy h1 {
+    font-size: 54px;
+  }
+
+
+  .shoe-wrap {
+    width: 46vw;
+  }
+
+
+  .product-orbit {
+    width: 45vw;
+  }
+
+
+  .feature {
+    min-width: auto;
+  }
+
+
+  .feature:nth-child(3) {
+    display: none;
+  }
+
+
+  .mini {
+    width: 76px;
+    height: 62px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — TABLET MENOR
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .navbar {
+    height: 80px;
+  }
+
+
+  .nav-links {
+    display: none;
+  }
+
+
+  .hero {
+    min-height:
+      calc(100vh - 80px);
+
+    grid-template-columns:
+      1fr;
+
+    grid-template-rows:
+      auto
+      1fr
+      auto;
+
+    padding:
+      25px 5vw 125px;
+
+    text-align: center;
+  }
+
+
+  .hero-copy {
+    max-width: 600px;
+
+    margin:
+      0 auto;
+
+    padding: 0;
+  }
+
+
+  .hero-label {
+    justify-content: center;
+  }
+
+
+  .description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .product-stage {
+    min-height: 430px;
+
+    height: 48vh;
+
+    order: 2;
+  }
+
+
+  .hero-copy {
+    order: 1;
+  }
+
+
+  .product-info {
+    order: 3;
+
+    justify-self: center;
+
+    max-width: 500px;
+
+    width: 100%;
+
+    text-align: center;
+  }
+
+
+  .info-top {
+    justify-content: center;
+
+    border-bottom: 0;
+
+    gap: 25px;
+  }
+
+
+  .product-info h2 {
+    margin-top: 5px;
+  }
+
+
+  .product-description {
+    max-width: 430px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .shoe-wrap {
+    width:
+      min(600px, 72vw);
+  }
+
+
+  .product-orbit {
+    width:
+      min(500px, 65vw);
+  }
+
+
+  .slider-arrow.prev {
+    left: 3%;
+  }
+
+
+  .slider-arrow.next {
+    right: 3%;
+  }
+
+
+  .feature-bar {
+    position: fixed;
+
+    overflow-x: auto;
+
+    min-height: 95px;
+
+    gap: 20px;
+
+    padding:
+      10px 4vw;
+  }
+
+
+  .feature {
+    flex-shrink: 0;
+  }
+
+
+  .mini-products {
+    flex-shrink: 0;
+
+    margin-left: 10px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+
+  .navbar {
+    height: 74px;
+
+    padding:
+      0 20px;
+  }
+
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+
+  .brand-mark {
+    transform:
+      scale(0.85);
+
+    transform-origin:
+      left center;
+  }
+
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+
+  .nav-actions .icon-btn {
+    display: none;
+  }
+
+
+  .menu-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+
+  .hero {
+    min-height:
+      calc(100vh - 74px);
+
+    padding:
+      25px 20px 125px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    gap: 0;
+  }
+
+
+  .hero-copy {
+    width: 100%;
+
+    flex-shrink: 0;
+  }
+
+
+  .hero-label {
+    margin-bottom: 14px;
+  }
+
+
+  .hero-copy h1 {
+    font-size:
+      clamp(42px, 13vw, 62px);
+
+    line-height:
+      0.94;
+  }
+
+
+  .description {
+    margin-top: 19px;
+
+    max-width: 320px;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+  }
+
+
+  .primary-btn {
+    height: 50px;
+
+    margin-top: 22px;
+
+    min-width: 175px;
+
+    font-size: 12px;
+  }
+
+
+  .product-stage {
+    width: 100%;
+
+    height: 39vh;
+
+    min-height: 290px;
+
+    margin-top: -5px;
+  }
+
+
+  .product-orbit {
+    width:
+      85vw;
+
+    max-width: 380px;
+  }
+
+
+  .product-halo {
+    width: 280px;
+
+    height: 160px;
+  }
+
+
+  .tech-lines {
+    width: 300px;
+    height: 300px;
+  }
+
+
+  .shoe-wrap {
+    width:
+      84vw;
+
+    max-width: 470px;
+  }
+
+
+  /* =====================================================
+     SETAS MOBILE — AINDA MAIS DISCRETAS
+  ===================================================== */
+
+  .slider-arrow {
+    width: 38px;
+    height: 38px;
+
+    border-color:
+      rgba(17, 19, 24, 0.08);
+
+    background:
+      rgba(255, 255, 255, 0.42);
+
+    opacity: 0.72;
+  }
+
+
+  .slider-arrow::before {
+    width: 7px;
+    height: 7px;
+
+    border-width:
+      1px;
+  }
+
+
+  .slider-arrow.prev {
+    left: -2px;
+  }
+
+
+  .slider-arrow.next {
+    right: -2px;
+  }
+
+
+  .slider-arrow:hover {
+    transform:
+      scale(1.04);
+
+    background:
+      rgba(255, 255, 255, 0.78);
+
+    box-shadow:
+      none;
+  }
+
+
+  .slider-arrow:active {
+    transform:
+      scale(0.92);
+  }
+
+
+  .slider-dots {
+    bottom: 0;
+
+    gap: 7px;
+  }
+
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+
+
+  .dot.active {
+    width: 20px;
+  }
+
+
+  .product-info {
+    width: 100%;
+
+    max-width: 330px;
+
+    flex-shrink: 0;
+
+    margin-top: -4px;
+  }
+
+
+  .product-info h2 {
+    font-size: 25px;
+  }
+
+
+  .product-description {
+    margin-top: 12px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+  }
+
+
+  .price {
+    margin-top: 13px;
+
+    font-size: 18px;
+  }
+
+
+  .link-btn {
+    margin-top: 13px;
+  }
+
+
+  .feature-bar {
+    height: 90px;
+
+    min-height: 90px;
+
+    padding:
+      8px 16px;
+
+    gap: 10px;
+  }
+
+
+  .feature {
+    display: none;
+  }
+
+
+  .mini-products {
+    width: 100%;
+
+    justify-content: center;
+
+    margin: 0;
+
+    padding: 5px;
+
+    gap: 5px;
+
+    border-radius: 30px;
+  }
+
+
+  .mini {
+    width:
+      calc(
+        (100vw - 100px) / 4
+      );
+
+    max-width: 72px;
+
+    height: 64px;
+
+    border-radius: 14px;
+  }
+
+
+  .collection-arrow {
+    width: 48px;
+
+    flex-shrink: 0;
+  }
+
+
+  .mini-shoe-image {
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .nav-links.mobile-open {
+    position: absolute;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 22px;
+
+    top: 74px;
+
+    left: 0;
+    right: 0;
+
+    padding: 25px;
+
+    background:
+      rgba(255, 255, 255, 0.94);
+
+    backdrop-filter:
+      blur(20px);
+
+    border-bottom:
+      1px solid
+      rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+      0 15px 35px
+      rgba(0, 0, 0, 0.08);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE PEQUENO
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .hero-copy h1 {
+    font-size: 39px;
+  }
+
+
+  .product-stage {
+    min-height: 260px;
+
+    height: 35vh;
+  }
+
+
+  .shoe-wrap {
+    width: 88vw;
+  }
+
+
+  .product-info {
+    max-width: 300px;
+  }
+
+
+  .mini {
+    height: 58px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    scroll-behavior:
+      auto !important;
+
+    transition-duration:
+      0.01ms !important;
+
+  }
+
+}

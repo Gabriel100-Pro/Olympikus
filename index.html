@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Olympikus — performance, tecnologia e design brasileiro."
+  >
+
+  <title>Olympikus — Performance em Movimento</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <main class="site" data-theme="black">
+
+
+    <!-- =====================================================
+         BACKGROUND
+    ====================================================== -->
+
+    <div class="ambient ambient-a"></div>
+
+    <div class="ambient ambient-b"></div>
+
+    <div class="grid-glow"></div>
+
+    <div class="background-noise"></div>
+
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+
+      <!-- LOGO -->
+
+      <a
+        href="#"
+        class="brand"
+        aria-label="Olympikus - Página inicial"
+      >
+
+        <span
+          class="brand-mark"
+          aria-hidden="true"
+        >
+          <i></i>
+          <i></i>
+          <i></i>
+        </span>
+
+        <span class="brand-name">
+          OLYMPIKUS
+        </span>
+
+      </a>
+
+
+
+      <!-- MENU -->
+
+      <nav
+        class="nav-links"
+        aria-label="Navegação principal"
+      >
+
+        <a href="#masculino">
+          MASCULINO
+        </a>
+
+        <a href="#feminino">
+          FEMININO
+        </a>
+
+        <a href="#tecnologias">
+          TECNOLOGIAS
+        </a>
+
+        <a href="#colecoes">
+          COLEÇÕES
+        </a>
+
+      </nav>
+
+
+
+      <!-- AÇÕES -->
+
+      <div class="nav-actions">
+
+
+        <!-- Pesquisa -->
+
+        <button
+          class="icon-btn"
+          aria-label="Pesquisar"
+        >
+          <span class="icon-search"></span>
+        </button>
+
+
+        <!-- Usuário -->
+
+        <button
+          class="icon-btn"
+          aria-label="Minha conta"
+        >
+          <span class="icon-user"></span>
+        </button>
+
+
+        <!-- Sacola -->
+
+        <button
+          class="icon-btn"
+          aria-label="Sacola"
+        >
+          <span class="icon-bag"></span>
+        </button>
+
+
+        <!-- Menu -->
+
+        <button
+          class="menu-btn"
+          aria-label="Abrir menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section
+      class="hero"
+      aria-label="Coleção de tênis"
+    >
+
+
+      <!-- ===================================================
+           TEXTO ESQUERDO
+      ==================================================== -->
+
+      <div class="hero-copy">
+
+
+        <!-- Pequena categoria -->
+
+        <div class="hero-label">
+
+          <span class="hero-label-line"></span>
+
+          <p id="eyebrow">
+            LINHA CORRE
+          </p>
+
+        </div>
+
+
+
+        <!-- Título -->
+
+        <h1 id="title">
+
+          Corre
+          <br>
+
+          mais longe
+
+        </h1>
+
+
+
+        <!-- Descrição -->
+
+        <p
+          class="description"
+          id="description"
+        >
+          Tecnologia, conforto e performance
+          para te levar além dos seus limites.
+        </p>
+
+
+
+        <!-- CTA -->
+
+        <button
+          class="primary-btn"
+          id="primaryBtn"
+        >
+
+          <span>
+            Explorar coleção
+          </span>
+
+          <b>
+            →
+          </b>
+
+        </button>
+
+
+      </div>
+
+
+
+      <!-- ===================================================
+           PRODUTO
+      ==================================================== -->
+
+      <div class="product-stage">
+
+
+        <!-- Círculo luminoso -->
+
+        <div class="product-orbit"></div>
+
+
+        <!-- Glow -->
+
+        <div class="product-halo"></div>
+
+
+        <!-- Elementos abstratos -->
+
+        <div class="tech-lines"></div>
+
+
+
+        <!-- SETA ESQUERDA -->
+
+        <button
+          class="slider-arrow prev"
+          aria-label="Tênis anterior"
+        >
+          ←
+        </button>
+
+
+
+        <!-- =================================================
+             TÊNIS
+        ================================================== -->
+
+        <div
+          class="shoe-wrap"
+          id="shoeWrap"
+        >
+
+          <div class="shoe-shadow"></div>
+
+
+          <img
+            id="shoeImage"
+            class="shoe"
+            src="assets/Tenis Preto.png"
+            alt="Tênis Olympikus Preto"
+          >
+
+        </div>
+
+
+
+        <!-- SETA DIREITA -->
+
+        <button
+          class="slider-arrow next"
+          aria-label="Próximo tênis"
+        >
+          →
+        </button>
+
+
+
+        <!-- INDICADORES -->
+
+        <div
+          class="slider-dots"
+          id="dots"
+          aria-label="Selecionar modelo"
+        ></div>
+
+
+      </div>
+
+
+
+      <!-- ===================================================
+           INFORMAÇÕES DO PRODUTO
+      ==================================================== -->
+
+      <aside class="product-info">
+
+
+        <!-- Número + categoria -->
+
+        <div class="info-top">
+
+          <p
+            class="product-index"
+            id="productIndex"
+          >
+            01 / 05
+          </p>
+
+
+          <p
+            class="product-category"
+            id="category"
+          >
+            CORRE 4
+          </p>
+
+        </div>
+
+
+
+        <!-- Nome -->
+
+        <h2 id="productName">
+          Vulcan
+        </h2>
+
+
+
+        <!-- Cor -->
+
+        <p
+          class="product-color"
+          id="productColor"
+        >
+          Preto / Vermelho
+        </p>
+
+
+
+        <!-- Descrição -->
+
+        <p
+          class="product-description"
+          id="productDescription"
+        >
+          O equilíbrio perfeito entre leveza,
+          amortecimento e resistência para o dia a dia.
+        </p>
+
+
+
+        <!-- Preço -->
+
+        <div
+          class="price"
+          id="price"
+        >
+          R$ 399,99
+        </div>
+
+
+
+        <!-- Link -->
+
+        <button class="link-btn">
+
+          Saiba mais
+
+          <span>
+            →
+          </span>
+
+        </button>
+
+
+      </aside>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         BARRA INFERIOR
+    ====================================================== -->
+
+    <footer class="feature-bar">
+
+
+      <!-- Tecnologia -->
+
+      <div class="feature">
+
+        <span class="feature-icon">
+          ◇
+        </span>
+
+        <div>
+
+          <strong>
+            TECNOLOGIA ELEVA+
+          </strong>
+
+          <small>
+            Mais conforto e impulso
+          </small>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- Design -->
+
+      <div class="feature">
+
+        <span class="feature-icon">
+          ✧
+        </span>
+
+        <div>
+
+          <strong>
+            DESIGN BRASILEIRO
+          </strong>
+
+          <small>
+            Feito para o movimento
+          </small>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- Sustentabilidade -->
+
+      <div class="feature">
+
+        <span class="feature-icon">
+          ◈
+        </span>
+
+        <div>
+
+          <strong>
+            SUSTENTABILIDADE
+          </strong>
+
+          <small>
+            Compromisso com o futuro
+          </small>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ===================================================
+           MINIATURAS
+      ==================================================== -->
+
+      <div
+        class="mini-products"
+        id="miniProducts"
+      ></div>
+
+
+    </footer>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

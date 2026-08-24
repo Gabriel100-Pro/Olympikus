@@ -1,0 +1,285 @@
+Vou anexar uma imagem de referência visual junto com este prompt.
+
+IMPORTANTE: use a imagem anexada como REFERÊNCIA DE DESIGN para esta landing page.
+
+Quero que você analise visualmente a imagem antes de começar e reproduza no código a mesma linguagem visual, composição, proporções, espaçamentos e sensação premium.
+
+Não precisa copiar literalmente todos os elementos da imagem. Use-a como referência para entender o conceito.
+
+Estou desenvolvendo uma landing page conceitual para uma marca brasileira de tênis esportivos, para um projeto de portfólio chamado:
+
+"Se essa empresa me contratasse, o que eu faria?"
+
+A marca de referência é a Olympikus.
+
+O objetivo é criar uma landing page moderna, premium, esportiva e tecnológica, com foco total no produto.
+
+Desenvolva este projeto utilizando React + styled-components. React deve ser utilizado para a arquitetura e componentização da interface, e styled-components deve ser utilizado para toda a estilização. Não utilize Tailwind CSS, CSS Modules ou outro sistema de estilização como substituição.
+
+==================================================
+REGRA PRINCIPAL
+===============
+
+Antes de escrever código:
+
+1. Analise a estrutura atual do projeto.
+2. Identifique a stack utilizada.
+3. Identifique os componentes existentes.
+4. Reutilize o que já existir.
+5. Não troque a tecnologia sem necessidade.
+6. Não destrua funcionalidades existentes.
+7. Organize o projeto de forma profissional e componentizada.
+
+Não quero todo o projeto em um único arquivo.
+
+==================================================
+REFERÊNCIA VISUAL
+=================
+
+A imagem anexada representa a direção visual que quero.
+
+Observe principalmente:
+
+* composição do hero
+* posição central do tênis
+* tênis inclinado
+* sensação de produto flutuando
+* muito espaço em branco
+* tipografia grande
+* informações divididas entre esquerda, centro e direita
+* setas laterais
+* pagination
+* estética minimalista
+* pequenos detalhes em vermelho
+* aparência premium de campanha esportiva
+* organização editorial
+* equilíbrio entre produto e conteúdo
+
+Mantenha essa sensação visual.
+
+==================================================
+HEADER
+======
+
+Criar um header minimalista.
+
+Esquerda:
+Logo "OLYMPIKUS".
+
+Centro:
+
+* Masculino
+* Feminino
+* Tecnologias
+* Coleções
+
+Direita:
+
+* busca
+* usuário
+* sacola
+* menu
+
+O header deve possuir bastante espaço e não parecer pesado.
+
+==================================================
+HERO
+====
+
+O hero deve ocupar praticamente toda a primeira tela.
+
+LADO ESQUERDO:
+
+Pequeno texto:
+
+"LINHA CORRE"
+
+Título:
+
+"Corre
+mais longe."
+
+O ponto final deve utilizar a cor de destaque do produto.
+
+Texto:
+
+"Tecnologia, conforto e performance
+para te levar além dos seus limites."
+
+CTA:
+
+"Explorar coleção →"
+
+==================================================
+PRODUTO
+=======
+
+O tênis deve ser o elemento visual mais importante da página.
+
+Ele deve:
+
+* ficar grande
+* ficar aproximadamente no centro
+* estar inclinado entre 25 e 30 graus
+* parecer estar flutuando
+* possuir uma sombra muito suave
+* possuir iluminação realista
+* não estar dentro de um card tradicional
+
+Atrás dele, criar um elemento circular/abstrato muito sutil para dar profundidade.
+
+O produto deverá ser uma imagem transparente.
+
+Criar uma estrutura preparada para receber os arquivos:
+
+/assets/shoes/
+
+shoe-01.webp
+shoe-02.webp
+shoe-03.webp
+shoe-04.webp
+shoe-05.webp
+
+Caso as imagens ainda não existam, utilize placeholders sem quebrar o layout.
+
+==================================================
+LADO DIREITO
+============
+
+Mostrar:
+
+"CORRE 4"
+
+"Vulcan"
+
+"Preto / Vermelho"
+
+Descrição:
+
+"O equilíbrio perfeito entre leveza, amortecimento e resistência para o dia a dia."
+
+Link:
+
+"Saiba mais →"
+
+==================================================
+CARROSSEL
+=========
+
+Criar desde o início a estrutura de um carrossel.
+
+Adicionar:
+
+* seta esquerda
+* seta direita
+* pagination dots
+
+Serão 5 produtos.
+
+Criar uma estrutura de dados:
+
+id
+nome
+categoria
+cor
+descricao
+imagem
+corPrincipal
+corDestaque
+
+Produtos:
+
+1.
+
+principal: #171719
+destaque: #F04432
+
+2.
+
+principal: #E9E9E5
+destaque: #1689E8
+
+3.
+
+principal: #102C55
+destaque: #C8F500
+
+4.
+
+principal: #E8D8C9
+destaque: #D59A8E
+
+5.
+
+principal: #34383D
+destaque: #087DE1
+
+==================================================
+BENEFÍCIOS
+==========
+
+Logo abaixo do hero criar uma faixa elegante com:
+
+TECNOLOGIA ELEVA+
+Mais conforto e impulso
+
+DESIGN BRASILEIRO
+Feito para o movimento
+
+SUSTENTABILIDADE
+Compromisso com o futuro
+
+==================================================
+ESTILO
+======
+
+Quero:
+
+* minimalismo
+* premium
+* esportivo
+* tecnológico
+* editorial
+* bastante whitespace
+* tipografia forte
+* sombras suaves
+* bordas discretas
+* microinterações
+
+Evitar:
+
+* excesso de gradientes
+* excesso de cards
+* sombras pesadas
+* aparência de template genérico
+* excesso de elementos
+
+Utilizar uma fonte moderna como Inter, Manrope ou equivalente.
+
+==================================================
+OBJETIVO DA PARTE 1
+===================
+
+Nesta etapa NÃO desenvolva toda a página.
+
+Concentre-se em:
+
+* arquitetura
+* header
+* hero
+* produto
+* informações do produto
+* estrutura do carrossel
+* pagination
+* benefícios
+* estrutura de dados
+
+Ao finalizar:
+
+* verifique se compila
+* corrija erros
+* corrija imports
+* mantenha o código organizado
+* deixe tudo preparado para a Parte 2.
+
+A imagem anexada deve ser tratada como referência visual principal.

@@ -1,0 +1,208 @@
+Agora faça a terceira e última etapa do projeto.
+
+Continue exatamente a aplicação desenvolvida nas Partes 1 e 2.
+
+A imagem de referência anexada anteriormente continua sendo a referência visual principal.
+
+NÃO recrie o projeto.
+
+NÃO mude a stack.
+
+NÃO descarte componentes existentes.
+
+Finalize o projeto mantendo React + styled-components. Não migre para Tailwind, CSS Modules ou outra solução de estilização. Faça toda a responsividade, acessibilidade e otimização utilizando a arquitetura existente.
+
+Faça uma revisão profissional e finalize a landing page.
+
+==================================================
+DESKTOP
+=======
+
+Preservar a composição da referência:
+
+* header minimalista
+* conteúdo à esquerda
+* tênis grande no centro
+* informações à direita
+* setas laterais
+* pagination
+* faixa de benefícios
+
+O tênis deve continuar sendo o protagonista.
+
+==================================================
+TABLET
+======
+
+Adaptar:
+
+* tamanho do tênis
+* tipografia
+* espaçamentos
+* posição das informações
+* setas
+
+Nada deve ficar cortado.
+
+==================================================
+MOBILE
+======
+
+Criar uma experiência completamente responsiva.
+
+Header:
+
+* logo
+* menu hamburger
+
+Hero:
+
+* texto bem organizado
+* tênis centralizado
+* produto com tamanho adequado
+* informações reorganizadas
+* CTA acessível
+* setas posicionadas para toque
+* pagination visível
+
+O carrossel deve continuar funcionando perfeitamente.
+
+==================================================
+SWIPE
+=====
+
+No mobile, permitir:
+
+swipe para esquerda → próximo produto
+
+swipe para direita → produto anterior
+
+O gesto deve possuir uma transição suave.
+
+==================================================
+ACESSIBILIDADE
+==============
+
+Adicionar:
+
+* alt nas imagens
+* aria-label nas setas
+* foco visível
+* navegação por teclado
+* botões semanticamente corretos
+* contraste adequado
+
+Exemplos:
+
+"Produto anterior"
+
+"Próximo produto"
+
+==================================================
+PERFORMANCE
+===========
+
+Otimizar:
+
+* imagens
+* animações
+* re-renderizações
+* carregamento
+* CSS
+
+Preferir:
+
+transform
+opacity
+
+para animações.
+
+Evitar bibliotecas desnecessárias.
+
+==================================================
+SEO
+===
+
+Adicionar uma estrutura básica de SEO.
+
+Title:
+
+"Corre mais longe. | Coleção esportiva"
+
+Description:
+
+"Conheça uma nova experiência em tecnologia, conforto e performance esportiva."
+
+Adicionar viewport e Open Graph se a stack permitir.
+
+==================================================
+POLIMENTO VISUAL
+================
+
+Faça uma revisão minuciosa de:
+
+* espaçamento
+* alinhamento
+* tipografia
+* proporção do tênis
+* posição das setas
+* tamanho do CTA
+* whitespace
+* sombras
+* microinterações
+* cores
+* hierarquia visual
+
+Quero que o resultado tenha aparência de:
+
+"Projeto conceitual de uma grande marca esportiva."
+
+Não quero aparência de template pronto.
+
+Não adicionar elementos apenas para preencher espaço.
+
+==================================================
+REFERÊNCIA VISUAL
+=================
+
+Compare o resultado final com a imagem anexada.
+
+A referência deve orientar:
+
+* composição
+* estética
+* proporção
+* posicionamento
+* sensação de produto premium
+* uso do espaço
+* direção visual
+
+Mas o código deve continuar sendo original e funcional.
+
+==================================================
+TESTE FINAL
+===========
+
+Depois de terminar:
+
+1. Rode o projeto.
+2. Corrija erros de compilação.
+3. Verifique o console.
+4. Verifique imports.
+5. Verifique caminhos das imagens.
+6. Teste os 5 produtos.
+7. Teste seta esquerda.
+8. Teste seta direita.
+9. Teste pagination.
+10. Teste teclado.
+11. Teste swipe.
+12. Teste desktop.
+13. Teste tablet.
+14. Teste mobile.
+15. Verifique overflow horizontal.
+16. Verifique acessibilidade.
+17. Corrija qualquer problema encontrado.
+
+O resultado final deve estar pronto para ser apresentado como projeto de portfólio.
+
+Preserve a identidade visual criada nas Partes 1 e 2 e faça apenas os ajustes necessários para chegar a um acabamento profissional.

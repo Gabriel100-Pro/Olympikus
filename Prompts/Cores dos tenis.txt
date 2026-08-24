@@ -1,0 +1,7 @@
+| Tênis                   | Cor principal | Cor de destaque | Solado    |
+| ----------------------- | ------------- | --------------- | --------- |
+| 🖤 **Preto + Vermelho** | `#171719`     | `#F04432`       | `#F4F4F2` |
+| 🤍 **Branco + Azul**    | `#E9E9E5`     | `#1689E8`       | `#F7F7F5` |
+| 💙 **Azul + Lima**      | `#102C55`     | `#C8F500`       | `#F3F3EF` |
+| 🤎 **Creme + Rosé**     | `#E8D8C9`     | `#D59A8E`       | `#F7F4EE` |
+| 🩶 **Grafite + Azul**   | `#34383D`     | `#087DE1`       | `#F0F1EE` |

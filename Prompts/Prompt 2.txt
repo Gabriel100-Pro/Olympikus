@@ -1,0 +1,227 @@
+Continue exatamente o projeto desenvolvido na Parte 1.
+
+A imagem de referência anexada anteriormente continua sendo a principal referência visual.
+
+NÃO recrie o projeto do zero.
+
+NÃO substitua a arquitetura existente sem necessidade.
+
+Agora quero transformar o hero em um carrossel de produtos premium e adicionar as animações.
+
+
+Continue utilizando React + styled-components exatamente como definido na Parte 1. Todas as novas animações, estados e estilos devem ser implementados mantendo essa arquitetura.
+==================================================
+CARROSSEL
+=========
+
+Os 5 tênis devem funcionar como um carrossel real.
+
+Ao clicar na seta direita:
+
+* o tênis atual sai suavemente para a direita
+* o próximo entra pela esquerda
+* o produto faz uma pequena rotação durante a transição
+* opacity diminui/aumenta
+* o movimento deve parecer fluido e premium
+
+Ao clicar na seta esquerda:
+
+* fazer a animação inversa
+
+Não quero uma troca instantânea de imagem.
+
+A transição deve durar aproximadamente 500–800ms.
+
+==================================================
+ANIMAÇÃO DO PRODUTO
+===================
+
+Quando o produto estiver entrando:
+
+opacity: 0
+translateX
+rotate
+
+Depois:
+
+opacity: 1
+translateX(0)
+rotate final
+
+Quando sair:
+
+translateX
+rotate
+opacity 0
+
+O movimento deve transmitir:
+
+* velocidade
+* leveza
+* esportividade
+
+Sem parecer exagerado.
+
+==================================================
+INFORMAÇÕES
+===========
+
+Quando trocar o produto, atualizar:
+
+* categoria
+* nome
+* cor
+* descrição
+* imagem
+* cor principal
+* cor de destaque
+
+O texto deve possuir uma animação discreta de:
+
+fade + slide
+
+==================================================
+COR TEMÁTICA
+============
+
+Esse ponto é MUITO importante.
+
+A interface deve acompanhar discretamente a cor do tênis.
+
+Produto 1:
+#F04432
+
+Produto 2:
+#1689E8
+
+Produto 3:
+#C8F500
+
+Produto 4:
+#D59A8E
+
+Produto 5:
+#087DE1
+
+Essa cor pode aparecer em:
+
+* ponto ativo
+* detalhes do título
+* pequenos ornamentos
+* CTA
+* elementos gráficos
+* pequenos detalhes do hero
+
+NÃO transformar toda a página na cor do produto.
+
+A mudança precisa ser elegante e discreta.
+
+==================================================
+MICROINTERAÇÕES
+===============
+
+Setas:
+
+* hover
+* pequena escala
+* transição suave
+* cursor pointer
+
+CTA:
+
+* hover
+* pequena elevação
+* transição suave
+
+Produto:
+
+* pequena animação de flutuação enquanto estiver parado
+
+Pagination:
+
+* indicador ativo destacado
+* transição suave
+
+==================================================
+SOMBRA
+======
+
+Criar uma sombra suave abaixo do tênis.
+
+Durante a animação, a sombra pode:
+
+* aumentar
+* diminuir
+* deslocar levemente
+
+para criar sensação de profundidade.
+
+==================================================
+NAVEGAÇÃO
+=========
+
+Permitir:
+
+* clique na seta esquerda
+* clique na seta direita
+* clique nos dots
+* teclado ←
+* teclado →
+
+Se possível, implementar swipe no mobile.
+
+Evitar problemas caso o usuário clique rapidamente várias vezes.
+
+==================================================
+IMAGENS
+=======
+
+Usar:
+
+/assets/shoes/shoe-01.webp
+/assets/shoes/shoe-02.webp
+/assets/shoes/shoe-03.webp
+/assets/shoes/shoe-04.webp
+/assets/shoes/shoe-05.webp
+
+Não utilizar imagens externas aleatórias.
+
+Quero poder simplesmente colocar meus arquivos nessas posições posteriormente.
+
+==================================================
+REFERÊNCIA
+==========
+
+Compare o resultado visual com a imagem de referência anexada.
+
+Principalmente:
+
+* tamanho do tênis
+* inclinação
+* posição
+* espaçamento
+* setas
+* hierarquia
+* equilíbrio visual
+* sensação premium
+
+Não precisa copiar exatamente a imagem.
+
+==================================================
+FINALIZAÇÃO
+===========
+
+Ao terminar:
+
+* teste os 5 produtos
+* teste todas as setas
+* teste os dots
+* teste teclado
+* teste as animações
+* verifique o console
+* corrija erros
+* mantenha o código limpo
+
+Não avance para uma reformulação completa da página.
+
+Esta etapa é exclusivamente para transformar o hero em uma experiência de produto interativa e sofisticada.
