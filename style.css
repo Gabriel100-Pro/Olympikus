@@ -334,6 +334,41 @@ a {
   justify-content: space-between;
 }
 
+.navbar,
+.hero-copy > *,
+.product-orbit,
+.shoe-wrap,
+.product-info,
+.mini-products {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.site.page-ready .navbar { animation: pageEnter 0.55s var(--ease) both; }
+.site.page-ready .hero-label { animation: pageEnter 0.5s 0.12s var(--ease) both; }
+.site.page-ready .hero-copy h1 { animation: pageEnter 0.5s 0.2s var(--ease) both; }
+.site.page-ready .hero-copy .description { animation: pageEnter 0.5s 0.28s var(--ease) both; }
+.site.page-ready .hero-copy .primary-btn { animation: pageEnter 0.5s 0.36s var(--ease) both; }
+.site.page-ready .product-orbit { animation: orbitEnter 0.7s 0.34s var(--ease) both; }
+.site.page-ready .shoe-wrap { animation: shoeEnter 0.72s 0.42s var(--ease) both; }
+.site.page-ready .product-info { animation: pageEnter 0.5s 0.62s var(--ease) both; }
+.site.page-ready .mini-products { animation: pageEnter 0.5s 0.74s var(--ease) both; }
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes orbitEnter {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shoeEnter {
+  from { opacity: 0; transform: translateX(100px) translateY(30px) rotate(6deg) scale(0.85); }
+  to { opacity: 1; transform: translateY(-2%) rotate(-5deg) scale(1); }
+}
+
 
 /* =========================================================
    LOGO
@@ -1010,6 +1045,16 @@ a {
     box-shadow 0.8s ease;
 }
 
+.product-orbit.orbit-transition {
+  animation: orbitPulse 650ms var(--ease) both;
+}
+
+@keyframes orbitPulse {
+  50% {
+    transform: scale(1.05) rotate(2deg);
+  }
+}
+
 
 /* =========================================================
    ÓRBITA — BRANCO / AZUL
@@ -1307,6 +1352,20 @@ a {
     transform 0.45s var(--ease);
 }
 
+.shoe-next {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.shoe-out-left,
+.shoe-out-right,
+.shoe-in-left,
+.shoe-in-right,
+.shoe-life {
+  will-change: transform, opacity;
+}
+
 
 /* =========================================================
    SOMBRA
@@ -1382,28 +1441,11 @@ a {
    ANIMAÇÃO DE SAÍDA
 ========================================================= */
 
-.shoe-out-left {
-  animation:
-    shoeOutLeft 0.43s
-    var(--ease)
-    forwards;
-}
-
-
-.shoe-out-right {
-  animation:
-    shoeOutRight 0.43s
-    var(--ease)
-    forwards;
-}
-
-
-.shoe-in {
-  animation:
-    shoeIn 0.58s
-    var(--ease)
-    both;
-}
+.shoe-out-left { animation: shoeOutLeft 0.59s var(--ease) forwards; }
+.shoe-out-right { animation: shoeOutRight 0.59s var(--ease) forwards; }
+.shoe-in-left { animation: shoeInLeft 0.59s var(--ease) both; }
+.shoe-in-right { animation: shoeInRight 0.59s var(--ease) both; }
+.shoe-life { animation: shoeLife 0.42s var(--ease) both; }
 
 
 @keyframes shoeOutLeft {
@@ -1421,9 +1463,10 @@ a {
     opacity: 0;
 
     transform:
-      translateX(-180px)
-      rotate(-13deg)
-      scale(0.88);
+      translateX(-120px)
+      translateY(10px)
+      rotate(-6deg)
+      scale(0.92);
   }
 
 }
@@ -1444,22 +1487,24 @@ a {
     opacity: 0;
 
     transform:
-      translateX(180px)
-      rotate(3deg)
-      scale(0.88);
+      translateX(120px)
+      translateY(10px)
+      rotate(6deg)
+      scale(0.92);
   }
 
 }
 
 
-@keyframes shoeIn {
+@keyframes shoeInLeft {
 
   0% {
     opacity: 0;
 
     transform:
-      translateX(160px)
-      rotate(5deg)
+      translateX(-140px)
+      translateY(0)
+      rotate(0deg)
       scale(0.88);
   }
 
@@ -1472,10 +1517,31 @@ a {
 
     transform:
       translateX(0)
+      translateY(0)
       rotate(-5deg)
       scale(1);
   }
+}
 
+
+@keyframes shoeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(140px) translateY(0) rotate(0deg) scale(0.88);
+  }
+
+  60% { opacity: 1; }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(-5deg) scale(1);
+  }
+}
+
+@keyframes shoeLife {
+  50% {
+    transform: translateY(-4px) rotate(-5deg) scale(1.015);
+  }
 }
 
 
@@ -1529,12 +1595,12 @@ a {
   opacity: 0.82;
 
   transition:
-    transform 0.4s var(--ease),
-    background 0.4s ease,
-    border-color 0.4s ease,
-    color 0.4s ease,
-    box-shadow 0.4s ease,
-    opacity 0.4s ease;
+    transform 0.24s var(--ease),
+    background 0.24s ease,
+    border-color 0.24s ease,
+    color 0.24s ease,
+    box-shadow 0.24s ease,
+    opacity 0.24s ease;
 }
 
 
@@ -1635,6 +1701,12 @@ a {
 
   background:
     rgba(255, 255, 255, 0.9);
+}
+
+.slider-arrow:focus-visible,
+.mini:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 
@@ -2006,6 +2078,7 @@ a {
   animation:
     textIn 0.55s var(--ease)
     both;
+  animation-delay: var(--text-delay, 0ms);
 }
 
 
@@ -2236,6 +2309,8 @@ a {
 
 
 .mini.active {
+  transform: scale(1.04);
+
   border:
     2px solid
     var(--accent);
@@ -3003,6 +3078,20 @@ a {
     transition-duration:
       0.01ms !important;
 
+  }
+
+  .shoe-out-left,
+  .shoe-out-right,
+  .shoe-in-left,
+  .shoe-in-right,
+  .shoe-life,
+  .product-orbit.orbit-transition {
+    animation-name: reducedFade !important;
+  }
+
+  @keyframes reducedFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
 }

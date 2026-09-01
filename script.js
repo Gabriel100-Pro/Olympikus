@@ -120,6 +120,12 @@ const site = document.querySelector(".site");
 
 const shoe = document.querySelector(".shoe");
 
+const shoeNext = document.querySelector(".shoe-next");
+
+const shoeWrap = document.querySelector(".shoe-wrap");
+
+const productOrbit = document.querySelector(".product-orbit");
+
 const productName = document.querySelector(".product-info h2");
 
 const productColor = document.querySelector(".product-color");
@@ -178,7 +184,7 @@ function updateTexts(product) {
   productPrice.textContent = product.price;
 
   productDescription.textContent =
-    product.description;
+    product.productDescription;
 
   productCategory.textContent =
     product.category;
@@ -186,14 +192,13 @@ function updateTexts(product) {
   productIndex.textContent =
     `${String(currentIndex + 1).padStart(2, "0")} / ${String(products.length).padStart(2, "0")}`;
 
-  heroLabel.textContent =
-    "LINHA CORRE";
+  heroLabel.textContent = product.eyebrow;
 
   heroTitle.innerHTML =
-    `Corra<br>mais longe<span>.</span>`;
+    product.title;
 
   heroDescription.textContent =
-    "Tecnologia, conforto e performance para te levar além dos seus limites.";
+    product.description;
 }
 
 
@@ -231,193 +236,74 @@ function updateDots() {
 ========================================================= */
 
 function updateMiniProducts() {
-
-  const minis =
-    document.querySelectorAll(".mini");
-
-  minis.forEach((mini, index) => {
-
-    mini.classList.toggle(
-      "active",
-      index === currentIndex
-    );
-
+  document.querySelectorAll(".mini").forEach((mini, index) => {
+    mini.classList.toggle("active", index === currentIndex);
   });
-
 }
 
-
-/* =========================================================
-   TROCAR PRODUTO
-========================================================= */
-
-function changeProduct(
-  newIndex,
-  direction = "next"
-) {
-
-  /*
-   Impede vários cliques durante a animação.
-  */
-
-  if (isAnimating) {
+function changeProduct(newIndex, direction = "next") {
+  if (isAnimating || newIndex < 0 || newIndex >= products.length || newIndex === currentIndex) {
     return;
   }
-
-
-  /*
-   Impede índice inválido.
-  */
-
-  if (
-    newIndex < 0 ||
-    newIndex >= products.length
-  ) {
-    return;
-  }
-
-
-  /*
-   Não faz nada se clicar no produto atual.
-  */
-
-  if (newIndex === currentIndex) {
-    return;
-  }
-
 
   isAnimating = true;
-
-
-  const oldIndex = currentIndex;
-
   currentIndex = newIndex;
 
+  const product = products[currentIndex];
+  const exitClass = direction === "next" ? "shoe-out-left" : "shoe-out-right";
+  const enterClass = direction === "next" ? "shoe-in-right" : "shoe-in-left";
+  let transitionStarted = false;
 
-  /*
-   Animação de saída.
-  */
+  updateTheme(product);
+  updateTexts(product);
+  updateDots();
+  updateMiniProducts();
+  animateProductInfo();
 
-  shoe.classList.remove(
-    "shoe-in",
-    "shoe-out-left",
-    "shoe-out-right"
-  );
-
-
-  void shoe.offsetWidth;
-
-
-  if (direction === "next") {
-
-    shoe.classList.add(
-      "shoe-out-left"
-    );
-
-  } else {
-
-    shoe.classList.add(
-      "shoe-out-right"
-    );
-
-  }
-
-
-  /*
-   Atualiza o conteúdo enquanto
-   o tênis antigo está saindo.
-  */
-
-  setTimeout(() => {
-
-    const product =
-      products[currentIndex];
-
-
-    updateTheme(product);
-
-    updateTexts(product);
-
-    updateDots();
-
-    updateMiniProducts();
-
-
-    /*
-     Troca a imagem.
-    */
-
-    shoe.src = product.image;
-
-
-    /*
-     Espera a imagem carregar
-     antes de iniciar a entrada.
-    */
-
-    shoe.onload = () => {
-
-      shoe.classList.remove(
-        "shoe-out-left",
-        "shoe-out-right"
-      );
-
-
-      void shoe.offsetWidth;
-
-
-      shoe.classList.add(
-        "shoe-in"
-      );
-
-
-      setTimeout(() => {
-
-        shoe.classList.remove(
-          "shoe-in"
-        );
-
-        isAnimating = false;
-
-      }, 600);
-
-    };
-
-
-    /*
-     Caso a imagem já esteja no cache.
-    */
-
-    if (shoe.complete) {
-
-      shoe.classList.remove(
-        "shoe-out-left",
-        "shoe-out-right"
-      );
-
-
-      void shoe.offsetWidth;
-
-
-      shoe.classList.add(
-        "shoe-in"
-      );
-
-
-      setTimeout(() => {
-
-        shoe.classList.remove(
-          "shoe-in"
-        );
-
-        isAnimating = false;
-
-      }, 600);
-
+  shoeNext.onload = () => {
+    if (transitionStarted) {
+      return;
     }
 
-  }, 430);
+    transitionStarted = true;
+    shoe.classList.remove("shoe-out-left", "shoe-out-right");
+    shoeNext.classList.remove("shoe-in-left", "shoe-in-right");
+    void shoeNext.offsetWidth;
+    shoe.classList.add(exitClass);
+    shoeNext.classList.add(enterClass);
+    productOrbit.classList.add("orbit-transition");
 
+    window.setTimeout(() => {
+      shoe.src = shoeNext.src;
+      shoe.alt = `Tênis Olympikus ${product.color}`;
+      shoe.classList.remove(exitClass);
+      shoeNext.classList.remove(enterClass);
+      shoeNext.removeAttribute("src");
+      shoe.classList.add("shoe-life");
+      productOrbit.classList.remove("orbit-transition");
+      window.setTimeout(() => shoe.classList.remove("shoe-life"), 420);
+      isAnimating = false;
+    }, 590);
+  };
+
+  shoeNext.src = product.image;
+
+  if (shoeNext.complete) {
+    shoeNext.onload();
+  }
+}
+
+function animateProductInfo() {
+  const animatedElements = document.querySelectorAll(
+    ".product-info .info-top, .product-info h2, .product-info .product-color, .product-info .product-description, .product-info .price, .product-info .link-btn"
+  );
+
+  animatedElements.forEach((element, index) => {
+    element.classList.remove("text-in", "text-out");
+    void element.offsetWidth;
+    element.style.setProperty("--text-delay", `${index * 55}ms`);
+    element.classList.add("text-in");
+  });
 }
 
 
@@ -774,6 +660,10 @@ function initialize() {
 
 
   updateMiniProducts();
+
+  requestAnimationFrame(() => {
+    site.classList.add("page-ready");
+  });
 
 }
 
